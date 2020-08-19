@@ -25,6 +25,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'junegunn/fzf',{ 'do':{ ->fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ycm-core/YouCompleteMe'
 
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
@@ -34,12 +35,19 @@ call vundle#end()
 filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Extra 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let extra_path = $HOME . "/extra/extra.vim"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "DISPLAY SETTINGS
 syntax on " syntax highlight 
-colorscheme solarized
+"colorscheme solarized
+colorscheme molokai
 set t_Co=256
 let g:solarized_termcolors=256
 
@@ -65,7 +73,7 @@ set softtabstop=4
 set expandtab " use spaces instead of tab
 set shiftround
 
-set hlsearch " highlight search result
+set nohlsearch " no highlight search result
 set ignorecase " ignore case in search patterns
 set smartcase " become sensitive when you type uppercase characters
 set incsearch " hight the string what i typed
@@ -86,6 +94,9 @@ set tags=./tags;/
 augroup vimrc 
 au! vimrc
 augroup end
+
+"load some config files and snippets here
+set rtp+=~/dotfiles/vim
 
 " Auto source .vimrc after the file write
 autocmd vimrc BufWritePost .vimrc source $MYVIMRC
@@ -108,8 +119,45 @@ nnoremap <leader>fh :History<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             Vim-indent-guides
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-hi IndentGuidesOdd  ctermbg=green
-hi IndentGuidesEven ctermbg=darkgrey
+hi IndentGuidesOdd  ctermbg=235
+hi IndentGuidesEven ctermbg=237
+let g:indent_guides_auto_colors=0
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   NERDTree 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>ft :NERDTreeToggle<cr>
+nnoremap <leader>ff :NERDTreeFind %<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   UltiSnips 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   YCM 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_min_num_identifier_candidate_chars=1
+"let g:ycm_min_num_of_chars_for_completion=1
+let g:ycm_key_list_select_completion=['<Down>']
+let g:ycm_key_list_previous_completion=['<Up>']
+"let g:ycm_cache_omnifunc=1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   Tagbar 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tagbar_autofocus=1
+nnoremap <leader>b :TagbarToggle<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   VIMRC OVERRIDE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if filereadable(extra_path)
+    exec 'source ' . extra_path
+endif
