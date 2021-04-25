@@ -15,6 +15,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -26,6 +27,8 @@ Plugin 'junegunn/fzf',{ 'do':{ ->fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'mileszs/ack.vim'
+Plugin 'godlygeek/tabular'
 
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
@@ -100,12 +103,21 @@ set rtp+=~/dotfiles/vim
 
 " Auto source .vimrc after the file write
 autocmd vimrc BufWritePost .vimrc source $MYVIMRC
+"Set HTML indent
+autocmd vimrc BufNewFile,BufRead *.blade.php setlocal filetype=html
+autocmd vimrc FileType  html setlocal tabstop=2|setlocal shiftwidth=2|setlocal softtabstop=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               Custom mapping
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
 let maplocalleader="+"
+
+nnoremap j gj
+nnoremap k gk
+nnoremap n nzz
+
+nnoremap N Nzz
 
 inoremap jk <esc>
 
@@ -115,6 +127,11 @@ inoremap jk <esc>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader><leader> :Files<cr>
 nnoremap <leader>fh :History<cr>
+nnoremap <leader>f: :History :<cr>
+nnoremap <leader>f/ :History /<cr>
+nnoremap <leader>FF :let @"=substitute(expand('<cWORD>'),'\\','/','g')<cr>:FZF -q <C-R>"<cr>
+
+vnoremap <leader><leader> y:FZF -q <C-R>"<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             Vim-indent-guides
@@ -131,7 +148,6 @@ let g:indent_guides_enable_on_vim_startup=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>ft :NERDTreeToggle<cr>
 nnoremap <leader>ff :NERDTreeFind %<cr>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   UltiSnips 
