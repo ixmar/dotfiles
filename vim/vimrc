@@ -62,6 +62,7 @@ set ruler
 set cursorline
 set wildmenu
 set wildmode=longest,list,full
+set completeopt-=preview
 
 "EDITOR SETTINGS
 set autoindent " keep indent on new line
@@ -81,6 +82,7 @@ set ignorecase " ignore case in search patterns
 set smartcase " become sensitive when you type uppercase characters
 set incsearch " hight the string what i typed
 
+set fileencoding=utf-8
 set fileformat=unix
 set fileformats=unix,dos,mac
 
@@ -130,6 +132,7 @@ nnoremap <leader>fh :History<cr>
 nnoremap <leader>f: :History :<cr>
 nnoremap <leader>f/ :History /<cr>
 nnoremap <leader>FF :let @"=substitute(expand('<cWORD>'),'\\','/','g')<cr>:FZF -q <C-R>"<cr>
+nnoremap <leader>fc :Ag<cr>
 
 vnoremap <leader><leader> y:FZF -q <C-R>"<cr>
 
