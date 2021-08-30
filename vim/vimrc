@@ -82,7 +82,7 @@ set ignorecase " ignore case in search patterns
 set smartcase " become sensitive when you type uppercase characters
 set incsearch " hight the string what i typed
 
-set fileencoding=utf-8
+set encoding=utf-8
 set fileformat=unix
 set fileformats=unix,dos,mac
 
