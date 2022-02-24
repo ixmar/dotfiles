@@ -132,7 +132,7 @@ nnoremap <leader>fh :History<cr>
 nnoremap <leader>f: :History :<cr>
 nnoremap <leader>f/ :History /<cr>
 nnoremap <leader>tf :Tags<cr>
-nnoremap <leader>FF :let @"=substitute(expand('<cWORD>'),'\\','/','g')<cr>:FZF -q <C-R>"<cr>
+nnoremap <leader>FF :let @"=substitute(expand('<cword>'),'\\','/','g')<cr>:FZF -q <C-R>"<cr>
 nnoremap <leader>fc :Ag<cr>
 
 vnoremap <leader><leader> y:FZF -q <C-R>"<cr>
