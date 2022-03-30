@@ -50,8 +50,8 @@ let extra_path = $HOME . "/extra/extra.vim"
 
 "DISPLAY SETTINGS
 syntax on " syntax highlight 
-"colorscheme solarized
-colorscheme molokai
+colorscheme solarized
+"colorscheme molokai
 set t_Co=256
 let g:solarized_termcolors=256
 
@@ -132,7 +132,8 @@ nnoremap <leader><leader> :Files<cr>
 nnoremap <leader>fh :History<cr>
 nnoremap <leader>f: :History :<cr>
 nnoremap <leader>f/ :History /<cr>
-nnoremap <leader>FF :let @"=substitute(expand('<cWORD>'),'\\','/','g')<cr>:FZF -q <C-R>"<cr>
+nnoremap <leader>tf :Tags<cr>
+nnoremap <leader>FF :let @"=substitute(expand('<cword>'),'\\','/','g')<cr>:FZF -q <C-R>"<cr>
 nnoremap <leader>fc :Ag<cr>
 
 vnoremap <leader><leader> y:FZF -q <C-R>"<cr>
