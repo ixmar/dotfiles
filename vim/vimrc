@@ -2,40 +2,38 @@ set nocompatible
 filetype off
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            Vundle configuration
+"                            vim-plug configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 " Add plugins here
-Plugin 'VUndleVim/Vundle.vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'scrooloose/syntastic'
-Plugin 'dense-analysis/ale'
-"Plugin 'airblade/vim-gitgutter'
-Plugin 'mhinz/vim-signify'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'mattn/emmet-vim'
-Plugin 'honza/vim-snippets'
-Plugin 'sirver/ultisnips'
-Plugin 'majutsushi/tagbar'
-Plugin 'junegunn/fzf',{ 'do':{ ->fzf#install() } }
-Plugin 'junegunn/fzf.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'mileszs/ack.vim'
-Plugin 'godlygeek/tabular'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/syntastic'
+Plug 'dense-analysis/ale'
+"Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mattn/emmet-vim'
+Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf',{ 'do':{ ->fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'mileszs/ack.vim'
+Plug 'godlygeek/tabular'
 
-Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 
