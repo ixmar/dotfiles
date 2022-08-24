@@ -26,7 +26,8 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf',{ 'do':{ ->fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ycm-core/YouCompleteMe'
+"Plug 'ycm-core/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mileszs/ack.vim'
 Plug 'godlygeek/tabular'
 
@@ -175,9 +176,20 @@ let g:UltiSnipsExpandTrigger="<tab>"
 "let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_min_num_identifier_candidate_chars=1
 "let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_key_list_select_completion=['<Down>']
-let g:ycm_key_list_previous_completion=['<Up>']
+"let g:ycm_key_list_select_completion=['<Down>']
+"let g:ycm_key_list_previous_completion=['<Up>']
 "let g:ycm_cache_omnifunc=1
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  CoC 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:coc_disable_transparent_cursor = 1
+let g:coc_disable_startup_warning = 1
+
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   Tagbar 
